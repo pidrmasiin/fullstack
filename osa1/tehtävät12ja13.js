@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       selected: 0,
-      pisteet: {a:0, b:0, c:0, d:0, e:0}
+      pisteet: [0, 0, 0, 0, 0, 0]
     }
   }
 
@@ -24,6 +24,7 @@ class App extends React.Component {
     const kopio = this.state.pisteet
     kopio[arvo] += 1 
     this.setState({ pisteet: kopio })
+    console.log(this.state.pisteet.indexOf["3"])
   }
 
   getIndex = () => {
