@@ -2,9 +2,9 @@ import React from 'react'
 
 
 
-const Country = ({ country }) => {
-
- if(country.lenght > 10) {
+const Country = ({ country },  {length} ) => {
+  console.log(length)
+ if(length > 10) {
    return null
  }
   return (

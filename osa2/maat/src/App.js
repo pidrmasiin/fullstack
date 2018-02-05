@@ -9,7 +9,9 @@ class App extends React.Component {
     this.state = {
       countries: {},
       selected: [],
-      search: ''
+      search: '',
+      country: {},
+      length: 11
     }
   }
 
@@ -24,9 +26,10 @@ class App extends React.Component {
   }
 
   handleChange = (event) => {
+    event.preventDefault()
     this.setState({ search: event.target.value })
 
-    event.preventDefault()
+
     const x = this.state.search
 
     const countryNames = () => this.state.countries.map(one => one.name)
@@ -44,26 +47,31 @@ class App extends React.Component {
  
       }
     }
+ 
     this.setState({
       country: country,
-      selected: valitut
+      selected: valitut,
+      length: valitut.length
 
     })
 
-    
+    console.log(this.state.length)
  
   }
+ joku = () => {
+    return(
+      this.state.length
+    )
+  }
+
+  
 
 
 
   
 
   render() {
-    const rivit = () => this.state.selected.map(x => <Country key={x} country={x}/>)
-    if(this.state.selected.length > 10){
-      this.rivit = () => null
-    }
-   
+
     return (
       <div>
         <h1>Maat</h1>
@@ -73,7 +81,7 @@ class App extends React.Component {
             onChange={this.handleChange}
           /> Etsi
         <br></br>
-        {rivit()}
+        {this.state.selected.map(x => <Country key={x} country={x} length={this.state.length}/>)}
       </div>
     )
   }
