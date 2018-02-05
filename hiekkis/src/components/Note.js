@@ -1,12 +1,10 @@
 import React from 'react'
 
-const Person = ({ person }) => {
+const Note = ({ note, toggleImportance}) => {
+  const label = note.important ? 'make not important' : 'make important'
   return (
-    <tr>
-    <td>{person.name} </td>
-    <td>{person.number} </td>
-    </tr>
+    <li>{note.content} <button onClick={toggleImportance}>{label}</button></li>
   )
 }
 
-export default Person
+export default Note
